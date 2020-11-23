@@ -34,5 +34,16 @@ token 有效期为 4 天，每 4 天之内进入一次签到列表，脚本自�
 
 [rewrite_local]
 student\.wozaixiaoyuan\.com\/sign\/getSignMessage\.json url script-request-header https://raw.githubusercontent.com/NomadJohn/fuck-wozaixiaoyuan/main/wzxy_token.js
-hostname = student.wozaixiaoyuan.com
 ```
+
+## 配置 MitM，启用 HTTPS 解析
+
+1. 按照软件配置 MitM，信任证书等等。
+
+2. 添加主机名：student.wozaixiaoyuan.com
+
+   或手动编辑配置文件，在 hostname 后面添加一项：
+
+   ```
+   hostname = ..., student.wozaixiaoyuan.com
+   ```
