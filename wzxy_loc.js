@@ -57,10 +57,11 @@ function getSignMessageByPage(page) {
     $task.fetch(getSignMessageRequest).then(
       (response) => {
         const responseBody = JSON.parse(response.body)
-        console.log('getSignMessage: ' + response.body)
+
         if (responseBody.code == 0) {
           // 过滤未开始、已签到
           let signMessage = filterSignMessage(responseBody.data)
+          console.log(`page ${page} - getSignMessage: ${JSON.stringify(signMessage}`)
           signMessage ? resolve(signMessage) : reject(`第${page}页未找到`)
         } else {
           reject(`获取签到列表失败：代码${responseBody.code}`)
