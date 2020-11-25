@@ -41,9 +41,9 @@ function doSign({ id, logId }) {
 
 function filterSignMessage(signMessages) {
   // 筛选可签到的列表
-  return signMessages.reduce((signMessage) =>
-    signMessage.state == 1 ? signMessage : false
-  )
+  for (let signMessage of signMessages)
+    if (signMessage.state == 1) return signMessage
+  return null
 }
 
 function getSignMessageByPage(page) {
